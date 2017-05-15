@@ -97,10 +97,10 @@ int Agent::manhattan_distance(Puzzle puzzle) {
 	{
 		for (int col = 0; col < NUM_COLS; col++)
 		{
-			int tile_row = (puzzle[row][col] - 1) / NUM_ROWS;
-			int tile_col = (puzzle[row][col] - 1) % NUM_ROWS;
+			int sol_row = (puzzle[row][col] - 1) / NUM_ROWS;
+			int sol_col = (puzzle[row][col] - 1) % NUM_ROWS;
 
-			manhattan_dist+=(abs(tile_row - row) + abs(tile_col - col));
+			manhattan_dist+=(abs(sol_row - row) + abs(sol_col - col));
 		}
 	}
 	return manhattan_dist;
