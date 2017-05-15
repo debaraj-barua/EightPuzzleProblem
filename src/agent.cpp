@@ -204,6 +204,46 @@ vector<Puzzle> Agent::child_states(Puzzle puzzle)
 {
 	vector<Puzzle> children;
 
+	for (int i=0; i<NUM_ROWS;i++)
+	{
+		for (int j=0;j<NUM_COLS;j++)
+		{
+			if (puzzle[i][j]==0)
+			{
+				//move up
+				if ((i-1)<NUM_ROWS and (i-1)>=0)
+				{
+					Puzzle next = puzzle;
+					swap(next[i][j], next[i-1][j]);
+					children.push_back(next);
+				}
+				//move down
+				if ((i+1)<NUM_ROWS and (i+1)>=0)
+				{
+					Puzzle next = puzzle;
+					swap(next[i][j], next[i+1][j]);
+					children.push_back(next);
+				}
+				//move left
+				if ((j-1)<NUM_COLS and (j-1)>=0)
+				{
+					Puzzle next = puzzle;
+					swap(next[i][j], next[i][j-1]);
+					children.push_back(next);
+				}
+				//move right
+				if ((j+1)<NUM_COLS and (j+1)>=0)
+				{
+					Puzzle next = puzzle;
+					swap(next[i][j], next[i][j+1]);
+					children.push_back(next);
+				}
+
+
+			}
+		}
+	}
+
 
 	return children;
 }
