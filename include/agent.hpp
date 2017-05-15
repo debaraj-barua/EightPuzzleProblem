@@ -50,9 +50,9 @@ private:
 
 	void print_puzzle(Puzzle& puzzle);
 
-	Puzzle Agent::get_solution_state();
-	int Agent::distance_function(Puzzle puzzle, Heuristic heuristic);
-	string Agent::get_state_string(Puzzle puzzle);
+	Puzzle get_solution_state();
+	int distance_function(Puzzle puzzle, Heuristic heuristic);
+	string get_state_string(Puzzle puzzle);
 };
 
 #endif

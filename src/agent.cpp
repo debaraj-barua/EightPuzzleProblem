@@ -91,9 +91,12 @@ void Agent::greedy_search(Heuristic heuristic) {
 
 	queue <pair<Puzzle, int>> fringe;
 	set<string> visited_nodes;
+	pair<Puzzle, int> current_state;
 	fringe.push(make_pair(puzzle,distance_function(puzzle,heuristic)));
 	while (!fringe.empty())
 	{
+		current_state=fringe.front();
+		fringe.pop();
 
 	}
 
