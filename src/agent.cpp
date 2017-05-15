@@ -90,7 +90,7 @@ void Agent::greedy_search(Heuristic heuristic) {
 	//keep track of repeated states.
 
 	queue <pair<Puzzle, int>> fringe;
-	string visited_states;
+	set<string> visited_nodes;
 	fringe.push(make_pair(puzzle,distance_function(puzzle,heuristic)));
 	while (!fringe.empty())
 	{
@@ -107,7 +107,7 @@ void Agent::a_star(Heuristic heuristic) {
 	//fringe will store the puzzle state along with cost attached, <estimated heuristic cost and cost so far >
 	queue <pair<Puzzle, pair<int,int>>> fringe;
 
-	string visited_states;
+	set<string> visited_nodes;
 
 	fringe.push(make_pair(puzzle,make_pair(distance_function(puzzle,heuristic),0))); //initial cost so far is 0
 	while (!fringe.empty())
