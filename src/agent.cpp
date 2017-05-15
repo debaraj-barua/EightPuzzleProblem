@@ -166,3 +166,14 @@ int Agent::distance_function(Puzzle puzzle, Heuristic heuristic) {
 return distance;
 
 }
+
+
+string Agent::get_state_string(Puzzle puzzle){
+	string state="";
+	for(int row=0; row<NUM_ROWS; row++){
+		for(int col=0; col<NUM_COLS; col++){
+			state+= to_string(puzzle[row][col]);
+		}
+	}
+	return state;
+}
