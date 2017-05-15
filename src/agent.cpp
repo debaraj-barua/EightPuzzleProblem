@@ -10,6 +10,7 @@
 #include <iostream>
 #include <queue>
 #include <algorithm>
+#include <set>
 
 Agent::Agent(Puzzle puzzle, Solver solver, Heuristic heuristic) :
 	puzzle(puzzle), solver(solver), heuristic(heuristic)
@@ -87,12 +88,36 @@ void Agent::greedy_search(Heuristic heuristic) {
 	//TODO
 	//Note: In this assignment you must find the proper way to
 	//keep track of repeated states.
+
+	queue <pair<Puzzle, int>> fringe;
+	string visited_states;
+	fringe.push(make_pair(puzzle,distance_function(puzzle,heuristic)));
+	while (!fringe.empty())
+	{
+
+	}
+
 }
 
 void Agent::a_star(Heuristic heuristic) {
 	//TODO
 	//Note: In this assignment you must find the proper way to
 	//keep track of repeated states.
+
+	//fringe will store the puzzle state along with cost attached, <estimated heuristic cost and cost so far >
+	queue <pair<Puzzle, pair<int,int>>> fringe;
+
+	string visited_states;
+
+	fringe.push(make_pair(puzzle,make_pair(distance_function(puzzle,heuristic),0))); //initial cost so far is 0
+	while (!fringe.empty())
+	{
+
+	}
+
+
+
+
 }
 
 void Agent::print_puzzle(Puzzle& puzzle) {
@@ -104,7 +129,7 @@ void Agent::print_puzzle(Puzzle& puzzle) {
 	}
 }
 
-/*******************/
+/****************************************************************************/
 
 //get_solution_state gives the solution matrix of the problem
 
@@ -129,7 +154,7 @@ Puzzle Agent::get_solution_state(){
 	return solution;
 }
 
-int Agent::get_distance(Puzzle puzzle, Heuristic heuristic) {
+int Agent::distance_function(Puzzle puzzle, Heuristic heuristic) {
 	int distance;
 
 	if (heuristic==Heuristic::MISPLACED_TILES){

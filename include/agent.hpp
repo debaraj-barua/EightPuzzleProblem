@@ -51,7 +51,7 @@ private:
 	void print_puzzle(Puzzle& puzzle);
 
 	Puzzle Agent::get_solution_state();
-	int Agent::get_distance(Puzzle puzzle, Heuristic heuristic);
+	int Agent::distance_function(Puzzle puzzle, Heuristic heuristic);
 };
 
 #endif
