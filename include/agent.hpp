@@ -53,6 +53,7 @@ private:
 	Puzzle get_solution_state();
 	int distance_function(Puzzle puzzle, Heuristic heuristic);
 	string get_state_string(Puzzle puzzle);
+	vector<Puzzle> child_states(Puzzle puzzle);
 };
 
 #endif

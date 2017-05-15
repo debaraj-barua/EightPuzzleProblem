@@ -97,6 +97,24 @@ void Agent::greedy_search(Heuristic heuristic) {
 	{
 		current_state=fringe.front();
 		fringe.pop();
+		if (visited_nodes.insert(get_state_string(current_state.first)).second)
+		{
+			if (current_state.second==0)
+			{
+				cout<<"Found solution::";
+				print_puzzle(current_state.first);
+				return;
+
+			}
+			else
+			{
+				vector<Puzzle> children =child_states(current_state.first);
+				for (int i=0;i<children.size();i++)
+				{
+					fringe.push(make_pair(children[i],distance_function(children[i],heuristic)));
+				}
+			}
+		}
 
 	}
 
@@ -179,4 +197,13 @@ string Agent::get_state_string(Puzzle puzzle){
 		}
 	}
 	return state;
+}
+
+
+vector<Puzzle> Agent::child_states(Puzzle puzzle)
+{
+	vector<Puzzle> children;
+
+
+	return children;
 }
