@@ -47,6 +47,8 @@ void Agent::run()
 	}
 }
 
+//get_solution_state gives the solution matrix of the problem
+
 Puzzle get_solution_state(){
 	int array[NUM_ROWS*NUM_COLS];
 
