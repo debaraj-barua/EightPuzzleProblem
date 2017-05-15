@@ -47,29 +47,6 @@ void Agent::run()
 	}
 }
 
-//get_solution_state gives the solution matrix of the problem
-
-Puzzle get_solution_state(){
-	int array[NUM_ROWS*NUM_COLS];
-
-	for (int i =1; i<=NUM_ROWS*NUM_COLS;i++)
-	{
-		array[i-1]=i;
-	}
-	array[NUM_ROWS*NUM_COLS-1]=0;
-
-	Puzzle solution;
-	int index = 0;
-	for (int rows = 0; rows < NUM_ROWS; rows++)
-	{
-		for (int cols = 0; cols < NUM_COLS; cols++)
-		{
-			solution[rows][cols] = array[index++];
-		}
-	}
-	return solution;
-}
-
 int Agent::misplaced_tiles(Puzzle puzzle) {
 	//TO DO
 
@@ -125,4 +102,42 @@ void Agent::print_puzzle(Puzzle& puzzle) {
 		}
 		std::cout << "|" << std::endl;
 	}
+}
+
+/*******************/
+
+//get_solution_state gives the solution matrix of the problem
+
+Puzzle Agent::get_solution_state(){
+	int array[NUM_ROWS*NUM_COLS];
+
+	for (int i =1; i<=NUM_ROWS*NUM_COLS;i++)
+	{
+		array[i-1]=i;
+	}
+	array[NUM_ROWS*NUM_COLS-1]=0;
+
+	Puzzle solution;
+	int index = 0;
+	for (int rows = 0; rows < NUM_ROWS; rows++)
+	{
+		for (int cols = 0; cols < NUM_COLS; cols++)
+		{
+			solution[rows][cols] = array[index++];
+		}
+	}
+	return solution;
+}
+
+int Agent::get_distance(Puzzle puzzle, Heuristic heuristic) {
+	int distance;
+
+	if (heuristic==Heuristic::MISPLACED_TILES){
+		distance=misplaced_tiles(puzzle);
+	}
+	else{
+		distance=manhattan_distance(puzzle);
+	}
+return distance;
+
 }
