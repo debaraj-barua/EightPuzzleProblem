@@ -173,7 +173,7 @@ void Agent::a_star(Heuristic heuristic) {
 				vector<Puzzle> children =child_states(current_state.first);
 				for (int i=0;i<children.size();i++)
 				{
-					//fringe.push_back(make_pair(children[i],make_pair(distance_function(children[i],heuristic),0)));
+					fringe.push_back(make_pair(children[i],make_pair(distance_function(children[i],heuristic),current_state.second.second+1)));
 				}
 			}
 		}
