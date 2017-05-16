@@ -31,6 +31,7 @@ enum Solver{
     A_STAR
 };
 
+
 class Agent {
 public:
 	Agent(Puzzle puzzle, Solver solver, Heuristic heuristic);
@@ -54,6 +55,8 @@ private:
 	int distance_function(Puzzle puzzle, Heuristic heuristic);
 	string get_state_string(Puzzle puzzle);
 	vector<Puzzle> child_states(Puzzle puzzle);
+
+
 };
 
 #endif
